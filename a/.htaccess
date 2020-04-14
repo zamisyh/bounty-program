@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+</IfModule>
+
+
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?id=$1 [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/$ index.php?id=$1 [QSA,L]
+
+	
+Options -Indexes

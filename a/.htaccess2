@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+</IfModule>
+
+; C:/xampp/htdocs/allprojects/project/exploiterid/a/.htpasswd
+AuthUserFile home/zam/public_html/bounty/a/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Private File"
+AuthType Basic
+require valid-user
+
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?id=$1 [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/$ index.php?id=$1 [QSA,L]
+
+	
+Options -Indexes
